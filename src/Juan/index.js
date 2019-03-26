@@ -1,10 +1,12 @@
-import Diff from './Diff';
-import Dom from './Dom';
-import Fragment from './Frag';
-
+import { createElement , updateElement , createDomElement } from './Dom';
+import { inject } from './Inject'
 const Juan = {
-    Dom,
-    Fragment,
+    createElement,
+    updateElement,
+    render(vnode,domNode){
+      const element = createDomElement(vnode);
+      inject(domNode,element);
+    }
 }
 
 export default Juan;

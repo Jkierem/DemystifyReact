@@ -6,8 +6,9 @@ module.exports = {
   mode: "development",
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist/js'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'build/'),
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -15,7 +16,17 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['@babel/env']
+          "plugins":[
+            "@babel/plugin-syntax-jsx",
+            ["@babel/plugin-transform-react-jsx",
+              {
+                "pragma": "Juan.createElement",
+                "pragmaFrag": "Juan.Fragment",
+                "useBuiltIns": false,
+                "throwIfNamespace": true
+              }
+            ]
+          ]
         }
       },
       {
@@ -30,9 +41,9 @@ module.exports = {
   },
   plugins:[
     new HtmlWebpackPlugin({
-      title: "Hello World",
+      title: "Demystifying",
       inject: true,
-      template: "./public/index.html"
+      template: "./public/index.html",
     })
   ],
   stats: {
@@ -41,9 +52,10 @@ module.exports = {
   watch: true,
   devtool: 'source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     port: 9000,
-    inline: true
+    inline: true,
+    publicPath: '/'
   }
 }

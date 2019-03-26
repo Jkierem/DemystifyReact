@@ -1,9 +1,9 @@
-const Juan = {
-    Dom(type, props, ...children){
-        console.log(type)
-        console.log(props);
-    }
-}
+import Juan from './Juan'
+
 const a = (
-<div name="test"></div>
+  <div name="test">
+    <a href="google.com">Some link</a>
+  </div>
 )
+
+Juan.render(a,document.getElementById('root'))

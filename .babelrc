@@ -2,11 +2,11 @@
   "plugins":[
     "@babel/plugin-syntax-jsx",
     ["@babel/plugin-transform-react-jsx",
-      { 
-        "pragma": "Juan.Dom", //vDom function
-        "pragmaFrag": "Juan.Fragment", //The fragment component
-        "useBuiltIns": false, //Use native functions or in this case babel helpers
-        "throwIfNamespace": true //throw error if XML namespaces are used
+      {
+        "pragma": "Juan.createElement",
+        "pragmaFrag": "Juan.Fragment",
+        "useBuiltIns": false,
+        "throwIfNamespace": true
       }
     ]
   ]
