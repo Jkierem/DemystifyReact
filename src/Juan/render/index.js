@@ -7,17 +7,13 @@ import {
 
 let rootInstance = null;
 
-const prerender = (vnode) => {
-    let element = {}
-    let markup = vnode instanceof Component ? vnode.render() : vnode;
-    return markup
-}
-
 export const render = ( _node, domNode) => {
-  const vnode = prerender(_node)
+  const vnode = _node instanceof Component ? _node.render() : _node;
   const prevInstance = rootInstance;
   const nextInstance = reconcile(domNode, prevInstance, vnode);
-  if( _node instanceof Component ){ _node.setInstance(nextInstance) }
+  if( _node instanceof Component ){ 
+    _node.setInstance(nextInstance) 
+  }
   rootInstance = nextInstance;
 }
 

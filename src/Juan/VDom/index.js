@@ -11,7 +11,8 @@ const isConstructor = (funk) => {
     return true;
 }
 
-const toTextNodeIfString = x => typeof x == "string" ? { type: TEXT_NODE , props:{ __value__: x } , children:[] } : x
+const createTextNode = (x) => ({ type: TEXT_NODE , props:{ __value__: x } , children:[] });
+const toTextNodeIfString = x => typeof x == "string" ?  createTextNode(x) : x
 
 export const createElement = (type, props, ...children) =>{
     props = !props ? {} : props ;
