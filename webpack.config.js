@@ -18,6 +18,7 @@ module.exports = {
         query: {
           "plugins":[
             "@babel/plugin-syntax-jsx",
+            "@babel/plugin-proposal-class-properties",
             ["@babel/plugin-transform-react-jsx",
               {
                 "pragma": "Juan.createElement",
