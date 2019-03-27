@@ -1,9 +1,22 @@
 import Juan from './Juan'
 
-const a = (
-  <div name="test">
-    <a href="google.com">Some link</a>
-  </div>
-)
+const App = () => {
+  return (
+    <div id="someId">
+      <div>A</div>
+      <div>B</div>
+    </div>
+  )
+}
 
-Juan.render(a,document.getElementById('root'))
+class Bpp extends Juan.Component {
+  render(){
+    return <App></App>
+  }
+}
+
+
+Juan.render( 
+  <Bpp/>, 
+  document.getElementById("root") 
+);

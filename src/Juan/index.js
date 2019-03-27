@@ -1,12 +1,11 @@
-import { createElement , updateElement , createDomElement } from './Dom';
-import { inject } from './Inject'
+import { createElement } from './Dom';
+import { render } from './Inject'
+import Component from './Component'
+
 const Juan = {
-    createElement,
-    updateElement,
-    render(vnode,domNode){
-      const element = createDomElement(vnode);
-      inject(domNode,element);
-    }
+  createElement,
+  Component,
+  render
 }
 
 export default Juan;
